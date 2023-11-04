@@ -10,34 +10,57 @@ function computerSelection() {
         else if (computerChoice === 2) {
         return 'paper' 
         }
+        
     }
     computerSelection()
     let computerChoice = computerSelection();
+   
+    const output = document.querySelector('#output');
     
-    let playerChoice = prompt('Select your fighter. [Rock, Paper, Scissors]').toLowerCase();
+    function determineWinner(playerChoice, computerChoice) {
+        if (playerChoice === computerChoice) {
+            output.textContent = `It\'s a draw! Computer chose ${computerChoice}.`
+        }
+        else if (
+            (playerChoice === 'rock' && computerChoice === 'scissors') ||
+            (playerChoice === 'scissors' && computerChoice === 'paper') ||
+            (playerChoice === 'paper' && computerChoice === 'rock')  
+            ) 
+            {output.textContent = `You win! Computer chose ${computerChoice}.`
+        } 
     
-    if (playerChoice === computerChoice) {
-        alert ('It\'s a draw!')
+        else {
+            output.textContent =`You lose! Computer chose ${computerChoice}.`; 
+        }
     }
-    else if (playerChoice === 'rock' && computerChoice === 'scissors') {
-        alert ('You win!')
-    }
-    else if (playerChoice === 'scissors' && computerChoice === 'paper'){
-        alert ('You win!')
-    }
-    else if (playerChoice === 'paper' && computerChoice === 'rock') {
-        alert ('You win!')
-    }
-    else {
-        alert ('You lose!')
+    
+      function playerSelection() {
+        const playerChoiceRock = document.querySelector('#choiceRock');
+        playerChoiceRock.onclick = () => {
+        const playerChoice = 'rock';                
+        const computerChoice = computerSelection();
+        determineWinner(playerChoice, computerChoice);
+        }
+
+    
+        const playerChoicePaper = document.querySelector('#choicePaper');
+        playerChoicePaper.onclick = () => { 
+        const playerChoice = 'paper';
+        const computerChoice = computerSelection();
+        determineWinner(playerChoice, computerChoice);
     }
 
-    const playerChoiceRock = document.querySelector('#choiceRock');
-    playerChoiceRock.onclick = () => alert('Player chose rock!');
+        const playerChoiceScissors = document.querySelector('#choiceScissors');
+        playerChoiceScissors.onclick = () => {
+        const playerChoice = 'scissors';
+        const computerChoice = computerSelection();
+        determineWinner(playerChoice, computerChoice);
+         
+}
 
-    const playerChoicePaper = document.querySelector('#choicePaper');
-    playerChoicePaper.onclick = () => alert('Player choice Paper!');
+};
+   playerSelection();
+   
 
-    const playerChoiceScissors = document.querySelector('#choiceScissors');
-    playerChoiceScissors.onclick = () => alert('Player chose Scissors!')
+   
 
