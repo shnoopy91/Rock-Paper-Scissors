@@ -3,25 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <link rel="stylesheet" a href="styles.css">
     <title>Rock paper scissors</title>
 </head>
 <body>
-    <div id="rounds"> </div>
-      <div id="score">Player: 0 | Computer = 0</div>
-    <div id="output"> </div>
+    <div class="entireGame"> 
+        <div class="title"> Rock, Paper, Scissors?</div>
+        <div id="score">Player: 0 | Computer = 0</div>
+       
     
-    <button id="choiceRock">
-        <img src="Images/Rock.jpg" height="200px" width="200px"> 
-    </button>
-    <button id="choicePaper">
-        <img src="Images/Paper.jpg" height="200px" width="200px"> 
-    </button>
-    
-    <button id="choiceScissors"> 
-        <img src="Images/Scissors.jpg" height="200px" width="200px"> 
-    </button>
-  
+        <div class="decisions"> 
+            <button id="choiceRock">
+                <img src="Images/Rock.jpg" height="200px" width="200px"> 
+            </button>
+            <button id="choicePaper">
+                <img src="Images/Paper.jpg" height="200px" width="200px"> 
+            </button>
+        
+            <button id="choiceScissors"> 
+                <img src="Images/Scissors.jpg" height="200px" width="200px"> 
+            </button>
+        </div>
+        <div class="bottomOutputs"> 
+        <div id="rounds"> Round: 0</div>
+        <div id="output">No move has been made yet. </div>
+        <button id="resetGame">Restart</button>
+        </div>
+    </div>
     <script src="app.js"></script>
 </body>
 </html>
